@@ -1,0 +1,10 @@
+{
+	"namespace":"beans",
+	"type":"record",
+	"name":"Employee",
+	"fields":[
+		{"name":"firstName", "type":"string"},
+		{"name":"lastName", "type":"string"},
+		{"name":"employeeId", "type":"int"}
+	]
+}
