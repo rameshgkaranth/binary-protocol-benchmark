@@ -14,11 +14,11 @@ import org.apache.camel.model.dataformat.AvroDataFormat;
 
 import beans.Employee;
 
-public class AvroSerializeProcessor implements Processor {
+public class EmployeeAvroSerializeProcessor implements Processor {
 
 	@Override
 	public void process(Exchange exchange) throws Exception {
-		System.out.println("In AvroSerializeProcessor processor ... ");
+		System.out.println("In EmployeeAvroSerializeProcessor processor ... ");
 		byte[] serializedContent = ((byte[]) exchange.getIn().getBody());
 		InputStream inputStream = new ByteArrayInputStream(serializedContent);
 		

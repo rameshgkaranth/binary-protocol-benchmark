@@ -9,6 +9,9 @@
 		<camel-version>2.16.0</camel-version>
 		<spring-version>4.1.5.RELEASE</spring-version>
 		<avro-version>1.8.1</avro-version>
+		<commons-io-version>1.3.2</commons-io-version>
+		<podam-version>2.3.5.RELEASE</podam-version>
+		<jackson-version>2.6.3</jackson-version>
 	</properties>
 
 	<dependencies>
@@ -34,12 +37,12 @@
 		</dependency>
 		<dependency>
 			<groupId>org.apache.camel</groupId>
-			<artifactId>camel-stream</artifactId>
+			<artifactId>camel-jackson</artifactId>
 			<version>${camel-version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.camel</groupId>
-			<artifactId>camel-spring-javaconfig</artifactId>
+			<artifactId>camel-stream</artifactId>
 			<version>${camel-version}</version>
 		</dependency>
 		<dependency>
@@ -56,7 +59,17 @@
 		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-io</artifactId>
-			<version>1.3.2</version>
+			<version>${commons-io-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>uk.co.jemos.podam</groupId>
+			<artifactId>podam</artifactId>
+			<version>${podam-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>${jackson-version}</version>
 		</dependency>
 	</dependencies>
 

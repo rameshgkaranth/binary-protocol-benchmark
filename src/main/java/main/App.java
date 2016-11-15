@@ -1,13 +1,15 @@
 package main;
 
-import java.io.File;
+import java.util.List;
 
 import org.apache.camel.CamelContext;
 import org.apache.camel.ProducerTemplate;
 import org.apache.camel.impl.DefaultCamelContext;
-import org.apache.commons.io.FileUtils;
 
-import routes.EmployeeInfoRoute;
+import beans.Product;
+import routes.ProductInfoDeSerializeRoute;
+import routes.ProductInfoSerializeRoute;
+import service.ProductListService;
 
 public class App {
 
@@ -15,12 +17,15 @@ public class App {
 		System.out.println("Starting camel context ... ");
 		
 		CamelContext camelContext = new DefaultCamelContext();
-		camelContext.addRoutes(new EmployeeInfoRoute());
+		camelContext.addRoutes(new ProductInfoSerializeRoute());
+		camelContext.addRoutes(new ProductInfoDeSerializeRoute());
 		camelContext.start();
 		
 		ProducerTemplate template = camelContext.createProducerTemplate();
-		byte[] content = FileUtils.readFileToByteArray(new File("/Users/rkaranth/Workspace-Private/binary-protocol-benchmark/src/main/resources/avro/employee.avro"));
-		template.sendBody("direct:source", content);
+		
+		ProductListService productListService = new ProductListService(1);
+		List<Product> products = productListService.getAllProducts();
+		template.sendBody("direct:productinfoserialize", products);
 		
         Thread.sleep(5000);
         

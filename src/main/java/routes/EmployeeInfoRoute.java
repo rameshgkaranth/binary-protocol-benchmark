@@ -2,14 +2,14 @@ package routes;
 
 import org.apache.camel.builder.RouteBuilder;
 
-import processor.AvroSerializeProcessor;
+import processor.EmployeeAvroSerializeProcessor;
 
 public class EmployeeInfoRoute extends RouteBuilder {
 	
 	@Override
 	public void configure() throws Exception {
 		System.out.println("In EmployeeInfoRoute ... ");
-		from("direct:source").process(new AvroSerializeProcessor()).to("stream:out");
+		from("direct:source").process(new EmployeeAvroSerializeProcessor()).to("stream:out");
 	}
 
 }
